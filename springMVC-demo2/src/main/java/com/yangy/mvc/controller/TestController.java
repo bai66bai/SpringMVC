@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.net.http.HttpRequest;
 
 @Controller
@@ -20,4 +21,11 @@ public class TestController {
         System.out.println(username + password);
         return "index";
     }
+
+    @RequestMapping("/testSession")
+    public String testSession(HttpSession session){
+        session.setAttribute("testSessionScope", "hello,session");
+        return "success";
+    }
+
 }
